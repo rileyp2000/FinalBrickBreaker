@@ -35,13 +35,21 @@ public class Ball{
    }
    
    public void moveRight(int amount){
-      x+=amount;
-   
+     if(amount>0){  
+      x++;
+      amount--;
+      update();
+      moveRight(amount);
+   }
    }
  
    public void moveLeft(int amount){
-      x-=amount;
+     if(amount>0){  
+      x++;
+      amount--;
+      update();
+      moveLeft(amount);
    }
-   
+   }
 
 }
