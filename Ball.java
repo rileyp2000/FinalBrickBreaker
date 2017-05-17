@@ -17,7 +17,11 @@ public class Ball{
  
  //Basic movement methods to move ball the appropriate direction
    public void moveUp(int amount){
-      y-=amount;   
+     if(amount>0){  
+      y--;
+      amount--;
+      moveUp(amount);
+   }
    }
  
    public void moveDown(int amount){
@@ -33,8 +37,5 @@ public class Ball{
       x-=amount;
    }
    
-   public void paint(Graphics g){
-   g.drawCircle(x,y,radius, Color.RED);
-   }
 
 }
