@@ -20,12 +20,18 @@ public class Ball{
      if(amount>0){  
       y--;
       amount--;
+      update();
       moveUp(amount);
    }
    }
  
    public void moveDown(int amount){
-      y+=amount;
+     if(amount>0){  
+      y++;
+      amount--;
+      update();
+      moveDown(amount);
+   }
    }
    
    public void moveRight(int amount){
