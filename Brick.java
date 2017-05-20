@@ -21,4 +21,8 @@ public class Brick extends Rectangle{
       g2.drawRect(x*GameConstants.BRICK_WIDTH+25, y*GameConstants.BRICK_LENGTH+15, 
                   GameConstants.BRICK_WIDTH, GameConstants.BRICK_LENGTH);
    }
+   public String toString(){
+      return "Brick at: " + x + ", " + y;
+   }
+
 }

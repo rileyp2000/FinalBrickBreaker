@@ -1,3 +1,12 @@
+/**
+*Patrick and Sean
+*5/20/17
+*This class holds all of the constants needed for the game
+*
+*
+*/
+
+
 import java.awt.*;
 
 public class GameConstants{

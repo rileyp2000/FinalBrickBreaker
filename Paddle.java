@@ -1,3 +1,11 @@
+/**
+*Patrick and Sean
+*5/20/17
+*This class creates a paddle for the game
+*
+*
+*/
+
 import javax.swing.*;
 import java.awt.*;
 
