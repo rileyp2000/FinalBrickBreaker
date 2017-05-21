@@ -10,35 +10,21 @@ import javax.swing.*;
 import java.awt.*;
 
 public class SetupBoard extends JPanel{
-
-
-      
-      
+   
+   //draws the starting screen   
    public void paintComponent(Graphics g){
       super.paintComponent(g);
       makeBricks(g);
       makePaddleAndBall(g);
    
    }
-      
+   //creates the array of bricks for use on the board and paints them   
    public void makeBricks(Graphics g){
       Bricks b = new Bricks();
       b.paint(g);
-      System.out.println(b);
-//       for(int i = 0; i< rows; i++){
-//          for(int j = 0; j < (GameConstants.WINDOW_SIZE-50)/GameConstants.BRICK_WIDTH; j++){
-//             if(i<6)
-//                g.setColor(GameConstants.COLORS[i]);
-//             else
-//                g.setColor(GameConstants.COLORS[i-6]);
-//            
-//             Brick b = new Brick(j,i);
-//             GameConstants.bricks[i][j] = b;
-//             b.paint(g);  
-//          }
-//       }
       
    }
+   //draws the paddle and ball on the screen
    public void makePaddleAndBall(Graphics g){
       Paddle p = new Paddle();
       p.paint(g);
