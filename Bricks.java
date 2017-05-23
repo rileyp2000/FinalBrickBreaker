@@ -29,7 +29,7 @@ public class Bricks{
          }
       }
    }
-   //paints the bricks brick by brick
+   //paints the bricks brick by brick in order
    public void paint(Graphics g){
       for(Brick[] row: bs){
          for(Brick b: row){
