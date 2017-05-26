@@ -34,14 +34,14 @@ public class SetupBoard extends JPanel{
    
    }
    
-   
+   /**********Create driver class later********/
    public static void main(String[] args) {
    	
       JFrame frame = new JFrame("Breakout!");
       SetupBoard dr = new SetupBoard();
       
       frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-      frame.setSize(700,700);
+      frame.setSize(GameConstants.WINDOW_SIZE,GameConstants.WINDOW_SIZE);
       frame.add(dr);
       frame.setVisible(true);
    

@@ -24,8 +24,9 @@ public class GameConstants{
    
    //constants used for the ball
    final static int BALL_DIAMETER = 15;
-   
+   final static double INITIAL_SPEED  = 3.0;
    final static int WINDOW_SIZE = 700;
+   final static double ACCELERATION = 1.25;
    
    //this array keeps track of what color to use for each brick
    final static Color[] COLORS = {Color.RED,Color.ORANGE,Color.YELLOW,
