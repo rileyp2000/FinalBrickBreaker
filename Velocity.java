@@ -8,15 +8,10 @@
 public class Velocity{
    private double vx, vy;
    
-   public Velocity(){
-      vx = (Math.random()*3.0+1.0);
-      if((int)(Math.random()*1)==0){
-         vx = -1.0*vx;
-      }
-      vy = GameConstants.INITIAL_SPEED;   
-      
+   public Velocity(int x, int y){
+      vx = x;
+      vy = y;
    }
-   
    public double getVX(){
       return vx;
    }
@@ -29,6 +24,10 @@ public class Velocity{
    }
    public void setVY(double v){
       vy =v;
+   }
+   public void setVelocity(double x, double y){
+      vx = x;
+      vy = y;
    }
 
 }
