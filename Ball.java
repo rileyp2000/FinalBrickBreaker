@@ -17,7 +17,7 @@ public class Ball extends java.awt.geom.Ellipse2D.Double {
       g2.setStroke(new BasicStroke(3));
      
       g2.drawOval(GameConstants.WINDOW_SIZE/2-GameConstants.BALL_DIAMETER/2,
-                     575,GameConstants.BALL_DIAMETER,GameConstants.BALL_DIAMETER);
+                     400,GameConstants.BALL_DIAMETER,GameConstants.BALL_DIAMETER);
    }
 
 }

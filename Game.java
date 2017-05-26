@@ -18,6 +18,7 @@ public class Game implements MouseMotionListener{
       frame.setSize(700,700);
       frame.add(dr);
       frame.setVisible(true);
+      frame.setResizable(false);
       frame.addMouseMotionListener(this);   
    
    }
@@ -28,14 +29,12 @@ public class Game implements MouseMotionListener{
       dr.setPaddle(p);
       dr.invalidate();
       dr.repaint();
-      System.out.println("Mouse moved to: " + e.getX() +", " + e.getY());
    }
     
    public void mouseDragged(MouseEvent e) {
       Paddle p = dr.getPaddle();
       p.setLocation(e.getX());
       dr.setPaddle(p);
-      System.out.println("Mouse moved to: " + e.getX() +", " + e.getY());
    }
 
 
