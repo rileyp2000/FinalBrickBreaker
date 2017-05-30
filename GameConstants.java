@@ -16,6 +16,8 @@ public class GameConstants{
    final static int BRICK_LENGTH = 30;
    final static int NUM_ROWS = 10;
    final static int NUM_BRICKS = (GameConstants.WINDOW_SIZE-50)/GameConstants.BRICK_WIDTH;
+   public static int REMAINING_BRICKS = NUM_BRICKS;
+   
    
    //constants used for the paddle
    final static int PADDLE_WIDTH = 80;
@@ -24,9 +26,10 @@ public class GameConstants{
    
    //constants used for the ball
    final static int BALL_DIAMETER = 15;
-   final static Velocity INITIAL_BALL_VELOCITY = new Velocity(0, 5);
-   
+   final static Velocity INITIAL_BALL_VELOCITY = new Velocity((int)(Math.random()*15), 5);
+   final static int BALL_START_POS = 400;
    final static int WINDOW_SIZE = 700;
+   final static int GAME_SPEED = 50;
    
    //this array keeps track of what color to use for each brick
    final static Color[] COLORS = {Color.RED,Color.ORANGE,Color.YELLOW,
