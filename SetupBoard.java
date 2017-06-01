@@ -36,8 +36,23 @@ public class SetupBoard extends JPanel{
       super.paintComponent(g);
       b.paint(g);
       p.paint(g);
-      ball.paint(g);   
+      ball.paint(g);
+      if(!GameConstants.isRunning)
+         loseGame(g);
+      if(GameConstants.remainingBricks == 0)
+         winGame(g);
+        
    }
+   
+   public void loseGame(Graphics g){
+      Graphics2D g2 = (Graphics2D)g;
+      g.drawString("Sorry Bud you lose!", GameConstants.WINDOW_SIZE/2, GameConstants.WINDOW_SIZE/2);
+   }
+   
+   public void winGame(Graphics g){
+      g.drawString("Sorry Bud you Win!", GameConstants.WINDOW_SIZE/2, GameConstants.WINDOW_SIZE/2);
+   }
+   
    
    
 

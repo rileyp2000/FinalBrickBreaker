@@ -33,7 +33,8 @@ public class Bricks{
    public void paint(Graphics g){
       for(Brick[] row: bs){
          for(Brick b: row){
-            b.paint(g);
+            if(b.isAlive)
+               b.paint(g);
          }
       }            
    }
@@ -43,7 +44,7 @@ public class Bricks{
          for(Brick b : bri){
             if(b.isAlive)
                return true;
-        }
+         }
       }
       return false;
    }

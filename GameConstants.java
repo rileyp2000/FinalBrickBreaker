@@ -11,13 +11,17 @@
 import java.awt.*;
 
 public class GameConstants{
+  
+   public static boolean isRunning = false;
+  
+  
    //constants used for the brick
    final static int BRICK_WIDTH = 50;
    final static int BRICK_LENGTH = 30;
    final static int NUM_ROWS = 10;
    final static int NUM_BRICKS = (GameConstants.WINDOW_SIZE-50)/GameConstants.BRICK_WIDTH;
-   public static int REMAINING_BRICKS = NUM_BRICKS;
-   
+   public static int remainingBricks = NUM_BRICKS*NUM_ROWS;
+      
    
    //constants used for the paddle
    final static int PADDLE_WIDTH = 80;

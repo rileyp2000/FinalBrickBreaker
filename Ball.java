@@ -41,7 +41,7 @@ public class Ball extends java.awt.geom.Ellipse2D.Double {
       if(super.getY()<=0)
          bounceVert();
       if(super.getX()>=GameConstants.WINDOW_SIZE-GameConstants.BALL_DIAMETER)
-         bounceHoriz();
+         GameConstants.isRunning = false;
       if(super.getX()<=0)
          bounceHoriz();
          
