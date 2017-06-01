@@ -8,11 +8,13 @@ import javax.swing.*;
 public class Brick extends Rectangle{
       //saves the color of the brick
       public Color color;
+      public boolean isAlive;
    
    //creates a rectangle with saved color and constant size 
    public Brick(int xx, int yy,Color col){
       super(xx,yy,GameConstants.BRICK_WIDTH,GameConstants.BRICK_LENGTH);
       color = col;
+      isAlive = true;
       
    }
     //paints the brick with a different thickness line and puts them into the rows

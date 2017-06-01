@@ -38,6 +38,16 @@ public class Bricks{
       }            
    }
    
+   public boolean isEmpty(){
+      for(Brick[] bri  : bs){
+         for(Brick b : bri){
+            if(b.isAlive)
+               return true;
+        }
+      }
+      return false;
+   }
+   
    public String toString(){
       for(Brick[] row: bs){
          for(Brick b: row){
