@@ -7,8 +7,8 @@ import javax.swing.*;
 
 public class Brick extends Rectangle{
       //saves the color of the brick
-      public Color color;
-      public boolean isAlive;
+   public Color color;
+   public boolean isAlive;
    
    //creates a rectangle with saved color and constant size 
    public Brick(int xx, int yy,Color col){
@@ -29,6 +29,33 @@ public class Brick extends Rectangle{
       //outlines the brick
       g2.drawRect(x*GameConstants.BRICK_WIDTH+25, y*GameConstants.BRICK_LENGTH+15, 
                   GameConstants.BRICK_WIDTH, GameConstants.BRICK_LENGTH);
+   }
+   
+   public void checkHit(Ball b){
+      //checks if right side is hit
+      if ((b.getY() >= this.getY()) && (b.getY() <= this.getY() + GameConstants.BRICK_WIDTH) 
+      && (b.getX() == this.getX() + GameConstants.BRICK_LENGTH) && (this.isAlive)){
+         b.bounceHoriz();
+         this.isAlive = false;
+      }
+      //checks if left side is hit
+      if ((b.getY() >= this.getY()) && (b.getY() <= this.getY() + GameConstants.BRICK_WIDTH) 
+      && (b.getX() == this.getX()) && (this.isAlive)){
+         b.bounceHoriz();
+         this.isAlive = false;
+      }
+      //checks if top is hit
+      if ((b.getX() >= this.getX()) && (b.getX() <= this.getX() + GameConstants.BRICK_LENGTH) 
+      && (b.getY() == this.getY()) && (this.isAlive)){
+         b.bounceHoriz();
+         this.isAlive = false;
+      }
+      //checks if bottom is hit   
+      if ((b.getX() >= this.getX()) && (b.getX() <= this.getX() + GameConstants.BRICK_LENGTH) 
+      && (b.getY() == this.getY()+GameConstants.BRICK_WIDTH) && (this.isAlive)){      
+         b.bounceHoriz();
+         this.isAlive = false;
+      }
    }
    public String toString(){
       return "Brick at: " + x + ", " + y + "; Color: " + color;

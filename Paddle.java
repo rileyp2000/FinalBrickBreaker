@@ -12,7 +12,7 @@ import java.awt.*;
 public class Paddle extends Rectangle{
    
    public Paddle(int x, int y){
-     super(x, y,GameConstants.PADDLE_WIDTH,   GameConstants.PADDLE_LENGTH);
+      super(x, y,GameConstants.PADDLE_WIDTH,   GameConstants.PADDLE_LENGTH);
    }
    
    

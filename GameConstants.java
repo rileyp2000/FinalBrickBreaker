@@ -12,7 +12,7 @@ import java.awt.*;
 
 public class GameConstants{
   
-   public static boolean isRunning = false;
+   public static boolean isRunning = true;
   
   
    //constants used for the brick
@@ -33,7 +33,7 @@ public class GameConstants{
    final static Velocity INITIAL_BALL_VELOCITY = new Velocity((int)(Math.random()*15), 5);
    final static int BALL_START_POS = 400;
    final static int WINDOW_SIZE = 700;
-   final static int GAME_SPEED = 50;
+   final static int GAME_SPEED = 10;
    
    //this array keeps track of what color to use for each brick
    final static Color[] COLORS = {Color.RED,Color.ORANGE,Color.YELLOW,
