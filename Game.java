@@ -56,8 +56,8 @@ public class Game implements MouseMotionListener{
       public void run() {
          
          Ball b = dr.getBall();
-         b.moveBall();
-         //checkCollision();
+         b.moveBall();  
+         dr.getBricks().checkBricks(b);
          dr.invalidate();
          dr.repaint();
       }

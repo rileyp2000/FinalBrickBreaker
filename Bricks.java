@@ -39,14 +39,24 @@ public class Bricks{
       }            
    }
    
+   public void checkBricks(Ball b){
+      for(int i = 0; i < bs.length; i++){
+         for(int j = 0; j<bs[i].length; j++){
+            bs[i][j].checkHit(b);
+         }
+      }
+   }
+      
+   
+   
    public boolean isEmpty(){
       for(Brick[] bri  : bs){
          for(Brick b : bri){
             if(b.isAlive)
-               return true;
+               return false;
          }
       }
-      return false;
+      return true;
    }
    
    public String toString(){
