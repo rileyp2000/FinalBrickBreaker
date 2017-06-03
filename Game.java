@@ -49,7 +49,7 @@ public class Game implements MouseMotionListener{
    }
    
    
-   //Uses the TimerTask class to periodically move the ball
+   //Uses the TimerTask class to periodically move the ball and check it against obstacles
    private class BallTask extends TimerTask {
    
        
@@ -57,7 +57,8 @@ public class Game implements MouseMotionListener{
          
          Ball b = dr.getBall();
          b.moveBall();  
-         dr.getBricks().checkBricks(b);
+         dr.getBricks().checkBricks(dr.getBall());
+         dr.getPaddle().checkHit(dr.getBall());
          dr.invalidate();
          dr.repaint();
       }

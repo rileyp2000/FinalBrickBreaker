@@ -19,42 +19,51 @@ public class Brick extends Rectangle{
    }
     //paints the brick with a different thickness line and puts them into the rows
    public void paint(Graphics g){
-      Graphics2D g2 = (Graphics2D)g;
-      g2.setStroke(new BasicStroke(2));
-      g2.setColor(color);
+      if(isAlive){
+         Graphics2D g2 = (Graphics2D)g;
+         g2.setStroke(new BasicStroke(2));
+         g2.setColor(color);
       //creates the filled brick
-      g2.fillRect(x*GameConstants.BRICK_WIDTH+25, y*GameConstants.BRICK_LENGTH+15, 
+         g2.fillRect(x*GameConstants.BRICK_WIDTH+25, y*GameConstants.BRICK_LENGTH+15, 
                   GameConstants.BRICK_WIDTH, GameConstants.BRICK_LENGTH);
-      g2.setColor(Color.BLACK);
+         g2.setColor(Color.BLACK);
       //outlines the brick
-      g2.drawRect(x*GameConstants.BRICK_WIDTH+25, y*GameConstants.BRICK_LENGTH+15, 
+         g2.drawRect(x*GameConstants.BRICK_WIDTH+25, y*GameConstants.BRICK_LENGTH+15, 
                   GameConstants.BRICK_WIDTH, GameConstants.BRICK_LENGTH);
+      }
    }
    
    public void checkHit(Ball b){
-      //checks if right side is hit
-      if ((b.getY() >= this.getY()) && (b.getY() <= this.getY() + GameConstants.BRICK_WIDTH) 
-      && (b.getX() == this.getX() + GameConstants.BRICK_LENGTH) && (this.isAlive)){
-         b.bounceHoriz();
-         this.isAlive = false;
-      }
-      //checks if left side is hit
-      if ((b.getY() >= this.getY()) && (b.getY() <= this.getY() + GameConstants.BRICK_WIDTH) 
-      && (b.getX() == this.getX()) && (this.isAlive)){
-         b.bounceHoriz();
-         this.isAlive = false;
-      }
-      //checks if top is hit
-      if ((b.getX() >= this.getX()) && (b.getX() <= this.getX() + GameConstants.BRICK_LENGTH) 
-      && (b.getY() == this.getY()) && (this.isAlive)){
-         b.bounceHoriz();
-         this.isAlive = false;
-      }
-      //checks if bottom is hit   
-      if ((b.getX() >= this.getX()) && (b.getX() <= this.getX() + GameConstants.BRICK_LENGTH) 
-      && (b.getY() == this.getY()+GameConstants.BRICK_WIDTH) && (this.isAlive)){      
-         b.bounceHoriz();
-         this.isAlive = false;
+      
+      if(this.isAlive){
+         //checks if right side is hit
+         if ((b.getY() >= super.getY()) && (b.getY() <= super.getY() + GameConstants.BRICK_LENGTH) 
+         && (b.getX() >= super.getX() + GameConstants.BRICK_LENGTH)){
+            b.bounceHoriz();
+            this.isAlive = false;      
+         
+         }
+         //checks if left side is hit
+         if ((b.getY() >= super.getY()) && (b.getY() <= super.getY() + GameConstants.BRICK_LENGTH) 
+         && (b.getX() <= super.getX())){
+            b.bounceHoriz();
+            this.isAlive = false;      
+         
+         }
+         //checks if top is hit
+         if ((b.getX() >= super.getX()) && (b.getX() <= super.getX()+GameConstants.BRICK_WIDTH) 
+         && (b.getY()+GameConstants.BALL_DIAMETER >= super.getY())){      
+            b.bounceVert();
+            this.isAlive = false;      
+         
+         }
+        //checks if bottom is hit
+         if ((b.getX() >= super.getX()) && (b.getX() <= super.getX()+GameConstants.BRICK_WIDTH) 
+         && (b.getY() >= super.getY()+GameConstants.BRICK_LENGTH)){      
+            b.bounceVert();
+            this.isAlive = false;      
+         
+         }
       }
    }
    public String toString(){
