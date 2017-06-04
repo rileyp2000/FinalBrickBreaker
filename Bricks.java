@@ -24,7 +24,7 @@ public class Bricks{
             else
                c = GameConstants.COLORS[i-6];
            
-            Brick b = new Brick(j,i,c);
+            Brick b = new Brick(j*GameConstants.BRICK_WIDTH+15,i*GameConstants.BRICK_LENGTH+25,c);
             bs[i][j] = b; 
          }
       }
@@ -34,7 +34,7 @@ public class Bricks{
       for(Brick[] row: bs){
          for(Brick br: row){
             if(br.isAlive)
-                br.paint(g);
+               br.paint(g);
          }
       }            
    }
@@ -42,8 +42,9 @@ public class Bricks{
    public void checkBricks(Ball b){
       for(int i = 0; i < bs.length; i++){
          for(int j = 0; j<bs[i].length; j++){
-            if(bs[i][j].isAlive)
+            if(bs[i][j].isAlive){
                bs[i][j].checkHit(b);
+            }
          }
       }
    }
