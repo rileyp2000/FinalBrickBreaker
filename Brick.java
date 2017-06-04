@@ -47,14 +47,16 @@ public class Brick extends Rectangle{
          if ((b.getY() >= super.getY()) && (b.getY() <= super.getY() + GameConstants.BRICK_LENGTH) 
          && (b.getX() <= super.getX())){
             b.bounceHoriz();
-            this.isAlive = false;      
+            this.isAlive = false; 
+            System.out.println(this);     
          
          }
          //checks if top is hit
          if ((b.getX() >= super.getX()) && (b.getX() <= super.getX()+GameConstants.BRICK_WIDTH) 
          && (b.getY()+GameConstants.BALL_DIAMETER >= super.getY())){      
             b.bounceVert();
-            this.isAlive = false;      
+            this.isAlive = false;   
+            System.out.println(this);   
          
          }
         //checks if bottom is hit
@@ -62,6 +64,7 @@ public class Brick extends Rectangle{
          && (b.getY() >= super.getY()+GameConstants.BRICK_LENGTH)){      
             b.bounceVert();
             this.isAlive = false;      
+            System.out.println(this);
          
          }
       }

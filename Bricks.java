@@ -32,8 +32,9 @@ public class Bricks{
    //paints the bricks brick by brick in order
    public void paint(Graphics g){
       for(Brick[] row: bs){
-         for(Brick b: row){
-            b.paint(g);
+         for(Brick br: row){
+            if(br.isAlive)
+                br.paint(g);
          }
       }            
    }
