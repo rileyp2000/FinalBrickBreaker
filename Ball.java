@@ -56,6 +56,6 @@ public class Ball extends java.awt.geom.Ellipse2D.Double {
    }
    
    public String toString(){
-      return "Ball at: " + x +", " + y;
+      return "Ball at: " + this.getX() +", " + this.getY();
    }
 }

@@ -19,7 +19,7 @@ public class Game implements MouseMotionListener{
       dr = new SetupBoard();
       
       frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-      frame.setSize(700,700);
+      frame.setSize(GameConstants.WINDOW_SIZE,GameConstants.WINDOW_SIZE);
       frame.add(dr);
       frame.setVisible(true);
       frame.setResizable(false);
@@ -57,8 +57,8 @@ public class Game implements MouseMotionListener{
          
          Ball b = dr.getBall();
          b.moveBall();  
-         dr.getBricks().checkBricks(dr.getBall());
-         dr.getPaddle().checkHit(dr.getBall());
+         dr.getBricks().checkBricks(b);
+         dr.getPaddle().checkHit(b);
          dr.invalidate();
          dr.repaint();
       }
