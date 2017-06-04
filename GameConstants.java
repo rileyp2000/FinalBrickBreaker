@@ -16,9 +16,9 @@ public class GameConstants{
   
   
    //constants used for the brick
-   final static int BRICK_WIDTH = 50;
-   final static int BRICK_LENGTH = 30;
-   final static int NUM_ROWS = 10;
+   final static int BRICK_WIDTH = 600; //80;
+   final static int BRICK_LENGTH = 50;
+   final static int NUM_ROWS = 1;
    final static int NUM_BRICKS = (GameConstants.WINDOW_SIZE-50)/GameConstants.BRICK_WIDTH;
       
    
@@ -37,5 +37,16 @@ public class GameConstants{
    //this array keeps track of what color to use for each brick
    final static Color[] COLORS = {Color.RED,Color.ORANGE,Color.YELLOW,
                    Color.GREEN, Color.BLUE, Color.CYAN, Color.PINK};
-
+   
+   //all of the sounds for the game
+   static EasySound iDubbbz = new EasySound("Hey Thats Pretty Good - iDubbbz Sound Effect (HD).wav");
+   static EasySound hitMarker = new EasySound("hit marker Sound Effect.wav");
+   static EasySound sadViolin = new EasySound("Sad Violin - MLG Sound Effects (HD).wav");
+   static EasySound ring = new EasySound("Sonic Ring Sound.wav");
+   
+   
+   //simple string tester
+   public static void sop(String out){
+      System.out.println(out);
+   }
 }
