@@ -33,6 +33,7 @@ public class Bricks{
    public void paint(Graphics g){
       for(Brick[] row: bs){
          for(Brick b: row){
+            if(b.isAlive)
             b.paint(g);
          }
       }            
@@ -41,7 +42,7 @@ public class Bricks{
    public void checkBricks(Ball b){
       for(int i = 0; i < bs.length; i++){
          for(int j = 0; j<bs[i].length; j++){
-            if(bs[i][j].isAlive)
+            //if(bs[i][j].isAlive)
                bs[i][j].checkHit(b);
          }
       }

@@ -30,7 +30,7 @@ public class GameConstants{
    
    //constants used for the ball
    final static int BALL_DIAMETER = 15;
-   final static Velocity INITIAL_BALL_VELOCITY = new Velocity((int)(Math.random()*5)+1, 4);
+   final static Velocity INITIAL_BALL_VELOCITY = new Velocity((int)(Math.random()*5)+1, 2);
    final static int BALL_START_POS = 400;
    final static int WINDOW_SIZE = 700;
    final static int GAME_SPEED = 10;
