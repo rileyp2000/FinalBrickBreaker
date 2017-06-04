@@ -36,18 +36,19 @@ public class SetupBoard extends JPanel {
       ball.paint(g);
       if(!GameConstants.isRunning)
          loseGame(g);
-      if(GameConstants.remainingBricks == 0)
+      if(b.isEmpty())
          winGame(g);
         
    }
    
    public void loseGame(Graphics g){
-      Graphics2D g2 = (Graphics2D)g;
-      g.drawString("Sorry Bud you lose!", GameConstants.WINDOW_SIZE/2, GameConstants.WINDOW_SIZE/2);
+      g.setFont(new Font("Comic Sans MS", Font.PLAIN, 48));
+      g.drawString("Sorry Bud you lose!", GameConstants.WINDOW_SIZE/4, GameConstants.WINDOW_SIZE/4);
    }
    
    public void winGame(Graphics g){
-      g.drawString("Sorry Bud you Win!", GameConstants.WINDOW_SIZE/2, GameConstants.WINDOW_SIZE/2);
+      g.setFont(new Font("Comic Sans MS", Font.PLAIN, 48));
+      g.drawString("Sorry Bud you Win!", GameConstants.WINDOW_SIZE/4, GameConstants.WINDOW_SIZE/4);
    }
    
    
