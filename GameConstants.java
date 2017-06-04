@@ -20,7 +20,6 @@ public class GameConstants{
    final static int BRICK_LENGTH = 30;
    final static int NUM_ROWS = 10;
    final static int NUM_BRICKS = (GameConstants.WINDOW_SIZE-50)/GameConstants.BRICK_WIDTH;
-   public static int remainingBricks = NUM_BRICKS*NUM_ROWS;
       
    
    //constants used for the paddle
@@ -30,7 +29,7 @@ public class GameConstants{
    
    //constants used for the ball
    final static int BALL_DIAMETER = 15;
-   final static Velocity INITIAL_BALL_VELOCITY = new Velocity((int)(Math.random()*5)+1, 4);
+   final static Velocity INITIAL_BALL_VELOCITY = new Velocity((int)(Math.random()*5)+1, 2);
    final static int BALL_START_POS = 400;
    final static int WINDOW_SIZE = 700;
    final static int GAME_SPEED = 10;

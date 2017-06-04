@@ -24,50 +24,51 @@ public class Brick extends Rectangle{
          g2.setStroke(new BasicStroke(2));
          g2.setColor(color);
       //creates the filled brick
-         g2.fillRect(x*GameConstants.BRICK_WIDTH+25, y*GameConstants.BRICK_LENGTH+15, 
+         g2.fillRect(x, y, 
                   GameConstants.BRICK_WIDTH, GameConstants.BRICK_LENGTH);
          g2.setColor(Color.BLACK);
       //outlines the brick
-         g2.drawRect(x*GameConstants.BRICK_WIDTH+25, y*GameConstants.BRICK_LENGTH+15, 
+         g2.drawRect(x, y, 
                   GameConstants.BRICK_WIDTH, GameConstants.BRICK_LENGTH);
       }
    }
    
    public void checkHit(Ball b){
-      
       if(this.isAlive){
-         //checks if right side is hit
-         if ((b.getY() >= super.getY()) && (b.getY() <= super.getY() + GameConstants.BRICK_LENGTH) 
-         && (b.getX() >= super.getX() + GameConstants.BRICK_LENGTH)){
-            b.bounceHoriz();
-            this.isAlive = false;      
+         if ((b.getBounds2D()).intersects(this)) {
          
-         }
-         //checks if left side is hit
-         if ((b.getY() >= super.getY()) && (b.getY() <= super.getY() + GameConstants.BRICK_LENGTH) 
-         && (b.getX() <= super.getX())){
-            b.bounceHoriz();
-            this.isAlive = false;      
+            int ballLeft = (int) b.getX();
+            int ballHeight = (int) b.getHeight();
+            int ballWidth = (int) b.getWidth();
+            int ballTop = (int) b.getY();
          
-         }
-         //checks if top is hit
-         if ((b.getX() >= super.getX()) && (b.getX() <= super.getX()+GameConstants.BRICK_WIDTH) 
-         && (b.getY()+GameConstants.BALL_DIAMETER >= super.getY())){      
-            b.bounceVert();
-            this.isAlive = false;      
+            Point pointRight = new Point(ballLeft + ballWidth + 1, ballTop);
+            Point pointLeft = new Point(ballLeft - 1, ballTop);
+            Point pointTop = new Point(ballLeft, ballTop - 1);
+            Point pointBottom = new Point(ballLeft, ballTop + ballHeight + 1);
          
-         }
-        //checks if bottom is hit
-         if ((b.getX() >= super.getX()) && (b.getX() <= super.getX()+GameConstants.BRICK_WIDTH) 
-         && (b.getY() >= super.getY()+GameConstants.BRICK_LENGTH)){      
-            b.bounceVert();
-            this.isAlive = false;      
          
-         }
+            if (this.contains(pointRight)) {
+               b.bounceHoriz();
+            } 
+            else if (this.contains(pointLeft)) {
+               b.bounceHoriz();
+            }
+         
+            if (this.contains(pointTop)) {
+               b.bounceVert();
+            } 
+            else if (this.contains(pointBottom)) {
+               b.bounceVert();            }
+         
+            this.isAlive = false;
+         }          
+      
       }
+      
    }
    public String toString(){
-      return "Brick at: " + x + ", " + y + "; Color: " + color;
+      return "Brick at: " + super.getX() + ", " + super.getY() + "; Color: " + color;
    }
 
 }
