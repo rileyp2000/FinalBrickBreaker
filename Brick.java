@@ -9,19 +9,18 @@ public class Brick extends Rectangle{
       //saves the color of the brick
    public Color color;
    public boolean isAlive;
-   public boolean isVisible;
    
    //creates a rectangle with saved color and constant size 
    public Brick(int xx, int yy,Color col){
       super(xx,yy,GameConstants.BRICK_WIDTH,GameConstants.BRICK_LENGTH);
       color = col;
       isAlive = true;
-      isVisible = true;
       
    }
+  
     //paints the brick with a different thickness line and puts them into the rows
    public void paint(Graphics g){
-      if(isAlive && isVisible){
+      if(isAlive){
          Graphics2D g2 = (Graphics2D)g;
          g2.setStroke(new BasicStroke(2));
          g2.setColor(color);
@@ -35,6 +34,14 @@ public class Brick extends Rectangle{
       }
    }
    
+   /*checks if a given ball has hit the brick by:
+    *1) checking if the two shapes intersect at all (using built-in Java methods)
+    *2) creating four points for each corner of the rectangle that bounds the Ball 
+    *3) Checking if any of those points are touching this Brick
+    *4) If any point is colliding, calls the ball's appropriate bounce method, speeds up the ball, and plays a sound effect
+    *5)The bounce and sound effect are called at the same time using Thread to avoid delays
+    *6) Sets the brick to disappear
+    */ 
    public void checkHit(Ball b){
       if(this.isAlive){
          if ((b.getBounds2D()).intersects(this)) {
@@ -51,35 +58,94 @@ public class Brick extends Rectangle{
          
          
             if (this.contains(pointRight)) {
-               b.bounceHoriz();
-               GameConstants.ring.play();  
-            
+               Thread thread1 = 
+                  new Thread() {
+                     public void run() {
+                        b.bounceVert(); 
+                        b.speedUp(); 
+                     }    
+                  };
+               Thread thread2 = 
+                  new Thread() {
+                     public void run() {
+                        GameConstants.ring.play();  
+                     }
+                  };
+               thread1.start();
+               thread2.start();
             } 
             else if (this.contains(pointLeft)) {
-               b.bounceHoriz();
-               GameConstants.ring.play();  
+               Thread thread1 = 
+                  new Thread() {
+                     public void run() {
+                        b.bounceHoriz();
+                        b.speedUp(); 
+                     
+                     }    
+                  };
+               Thread thread2 = 
+                  new Thread() {
+                     public void run() {
+                        GameConstants.ring.play();  
+                     }
+                  };
+               thread1.start();
+               thread2.start();  
             
             
             }
             
             else if (this.contains(pointTop)) {
-               b.bounceVert();
-               GameConstants.ring.play();  
+               Thread thread1 = 
+                  new Thread() {
+                     public void run() {
+                        b.bounceVert(); 
+                        b.speedUp(); 
+                     
+                     }    
+                  };
+               Thread thread2 = 
+                  new Thread() {
+                     public void run() {
+                        GameConstants.ring.play();  
+                     }
+                  };
+               thread1.start();
+               thread2.start();  
             
             
             } 
             else if (this.contains(pointBottom)) {
-               b.bounceVert();
-               GameConstants.ring.play();  
+               Thread thread1 = 
+                  new Thread() {
+                     public void run() {
+                        b.bounceVert();  
+                        b.speedUp(); 
+                     
+                     }    
+                  };
+               Thread thread2 = 
+                  new Thread() {
+                     public void run() {
+                        GameConstants.ring.play();  
+                     }
+                  };
+               thread1.start();
+               thread2.start();
             }
          
             this.isAlive = false;
-            this.isVisible = false;
          }          
       
       }
       
    }
+   
+   
+   public void reset(){
+   this.isAlive = true;
+   }
+   
    public String toString(){
       return "Brick at: " + super.getX() + ", " + super.getY() + "; Color: " + color;
    }

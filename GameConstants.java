@@ -19,7 +19,7 @@ public class GameConstants{
 
 
    //constants used for the brick
-   final static int BRICK_WIDTH = 600; //80;
+   final static int BRICK_WIDTH = 200; //80;
    final static int BRICK_LENGTH = 50;
    final static int NUM_ROWS = 1;
    final static int NUM_BRICKS = (GameConstants.WINDOW_SIZE-50)/GameConstants.BRICK_WIDTH;

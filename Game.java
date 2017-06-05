@@ -13,6 +13,8 @@ public class Game implements MouseMotionListener{
    SetupBoard dr;
    EndGame end;
    JFrame frame;
+   Timer time;
+   BallTask task;
    
    public Game(){
    
@@ -30,12 +32,15 @@ public class Game implements MouseMotionListener{
       
       
       //Handles the Timer tasks necessary for the ball movement
-      Timer time = new Timer();
-      BallTask task = new BallTask();   
+      time = new Timer();
+      task = new BallTask();   
       time.schedule(task, 0, GameConstants.GAME_SPEED);
       
    }
    
+   public void reset(){
+      
+   }
    public void mouseMoved(MouseEvent e) {
       Paddle p = dr.getPaddle();
       p.setLocation(e.getX());
@@ -66,7 +71,6 @@ public class Game implements MouseMotionListener{
          }
          if(!GameConstants.isRunning&&!dr.getBricks().isEmpty()){
             dr.setVisible(false);
-            //end = new EndGame();
             frame.add(end);
             GameConstants.loss.play();
             GameConstants.isRunning = false;   

@@ -30,7 +30,10 @@ public class Ball extends java.awt.geom.Ellipse2D.Double {
       g2.drawOval((int)super.getX(),(int)super.getY(), GameConstants.BALL_DIAMETER,GameConstants.BALL_DIAMETER);
    }
    
-   
+   public void setVelocity(Velocity newV){
+      v = newV;
+   }
+
    
    public void moveBall(){
       if(GameConstants.isRunning){
@@ -42,16 +45,52 @@ public class Ball extends java.awt.geom.Ellipse2D.Double {
              
          }
          if(super.getY()<=0){
-            bounceVert();
-            GameConstants.hitMarker.play();
+            Thread thread1 = 
+                  new Thread() {
+                     public void run() {
+                        bounceVert();  
+                     }    
+                  };
+            Thread thread2 = 
+                  new Thread() {
+                     public void run() {
+                        GameConstants.hitMarker.play();  
+                     }
+                  };
+            thread1.start();
+            thread2.start();
          }
          if(super.getX()>=GameConstants.WINDOW_SIZE-GameConstants.BALL_DIAMETER){
-            bounceHoriz();
-            GameConstants.hitMarker.play();
+            Thread thread1 = 
+                  new Thread() {
+                     public void run() {
+                        bounceHoriz();  
+                     }    
+                  };
+            Thread thread2 = 
+                  new Thread() {
+                     public void run() {
+                        GameConstants.hitMarker.play();  
+                     }
+                  };
+            thread1.start();
+            thread2.start();
          }
          if(super.getX()<=0){
-            bounceHoriz(); 
-            GameConstants.hitMarker.play();
+            Thread thread1 = 
+                  new Thread() {
+                     public void run() {
+                        bounceHoriz();  
+                     }    
+                  };
+            Thread thread2 = 
+                  new Thread() {
+                     public void run() {
+                        GameConstants.hitMarker.play();  
+                     }
+                  };
+            thread1.start();
+            thread2.start();
          }
       }
    }
@@ -67,5 +106,22 @@ public class Ball extends java.awt.geom.Ellipse2D.Double {
    
    public String toString(){
       return "Ball at: " + this.getX() +", " + this.getY();
+   }
+   
+   public void speedUp(){
+   v.setVX(v.getVX()*1.05);
+   v.setVY(v.getVY()*1.05);
+   }
+   
+   public void reset(){
+      super.setFrame(GameConstants.WINDOW_SIZE/2-GameConstants.BALL_DIAMETER/2,   
+            GameConstants.BALL_START_POS, 
+            GameConstants.BALL_DIAMETER/2, 
+            GameConstants.BALL_DIAMETER/2);
+      v = GameConstants.INITIAL_BALL_VELOCITY;
+      
+      //50-50 chance of making the initial  x component of velocity negative
+      if((int)Math.random()*1==0)
+         v.setVX(v.getVX()*-1.0);  
    }
 }

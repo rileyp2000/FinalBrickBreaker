@@ -33,7 +33,7 @@ public class Bricks{
    public void paint(Graphics g){
       for(Brick[] row: bs){
          for(Brick br: row){
-            if(br.isAlive && br.isVisible)
+            if(br.isAlive)
                br.paint(g);
          }
       }            
@@ -63,12 +63,20 @@ public class Bricks{
    
    
    public static void killBricks(){
-      for(Brick[] bri  : bs){
-         for(Brick b : bri){
-            b.isVisible = false;
+      for(int i = 0; i < bs.length; i++){
+         for(int j = 0; j<bs[i].length; j++){
+            bs[i][j].isAlive = false;
          }
       }
    }   
+   
+   public static void reset(){
+      for(int i = 0; i < bs.length; i++){
+         for(int j = 0; j<bs[i].length; j++){
+            bs[i][j].reset();
+         }
+      }
+   } 
    
    
    public String toString(){
