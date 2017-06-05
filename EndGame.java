@@ -55,8 +55,7 @@ public class EndGame extends SetupBoard{
    
    
    
-   private class ResetButtonListener
-   implements ActionListener
+   private class ResetButtonListener implements ActionListener
    {
       public void actionPerformed(ActionEvent e) 
       { 
@@ -72,7 +71,6 @@ public class EndGame extends SetupBoard{
    
    public void loseGame(Graphics g){
       if(!GameConstants.isRunning){
-         Bricks.killBricks();        
          g.setColor(new Color(195, 195, 195));   
          g.fillRect(0,0,GameConstants.WINDOW_SIZE,GameConstants.WINDOW_SIZE);
          g.setColor(Color.BLACK);
@@ -84,7 +82,7 @@ public class EndGame extends SetupBoard{
    public void winGame(Graphics g){
       if(!GameConstants.isRunning){
          g.setColor(Color.CYAN);
-         g.fillRect(0,0,700,700);
+         g.fillRect(0,0,GameConstants.WINDOW_SIZE,GameConstants.WINDOW_SIZE);
          g.setColor(Color.BLACK);
          g.setFont(new Font("Comic Sans MS", Font.PLAIN, 48));
          g.drawString(GameConstants.won, GameConstants.WINDOW_SIZE/7, GameConstants.WINDOW_SIZE/4);
