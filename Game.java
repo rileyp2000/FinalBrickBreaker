@@ -11,12 +11,15 @@ import java.util.TimerTask;
 
 public class Game implements MouseMotionListener{
    SetupBoard dr;
+   EndGame end;
+   JFrame frame;
    
    public Game(){
    
    	
-      JFrame frame = new JFrame("Breakout!");
+      frame = new JFrame("Breakout!");
       dr = new SetupBoard();
+      end = new EndGame();
       
       frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
       frame.setSize(GameConstants.WINDOW_SIZE,GameConstants.WINDOW_SIZE);
@@ -56,13 +59,34 @@ public class Game implements MouseMotionListener{
       public void run() {
          
          Ball b = dr.getBall();
-         b.moveBall();  
-         dr.getBricks().checkBricks(b);
-         dr.getPaddle().checkHit(b);
+         if(GameConstants.isRunning||!dr.getBricks().isEmpty()){
+            b.moveBall();  
+            dr.getBricks().checkBricks(b);
+            dr.getPaddle().checkHit(b);
+         }
+         if(!GameConstants.isRunning&&!dr.getBricks().isEmpty()){
+            dr.setVisible(false);
+            //end = new EndGame();
+            frame.add(end);
+            GameConstants.loss.play();
+            GameConstants.isRunning = false;   
+         }
+         if(dr.getBricks().isEmpty()){
+            dr.setVisible(false);
+            frame.add(end);  
+            GameConstants.isRunning = false;
+            if(!GameConstants.soundAlreadyPlayed){
+               GameConstants.iDubbbz.play();
+               GameConstants.soundAlreadyPlayed = true;
+            }
+         }
+         
          dr.invalidate();
          dr.repaint();
       }
    }
+   
+
 
 
 }

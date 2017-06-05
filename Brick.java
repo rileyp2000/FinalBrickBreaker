@@ -9,17 +9,19 @@ public class Brick extends Rectangle{
       //saves the color of the brick
    public Color color;
    public boolean isAlive;
+   public boolean isVisible;
    
    //creates a rectangle with saved color and constant size 
    public Brick(int xx, int yy,Color col){
       super(xx,yy,GameConstants.BRICK_WIDTH,GameConstants.BRICK_LENGTH);
       color = col;
       isAlive = true;
+      isVisible = true;
       
    }
     //paints the brick with a different thickness line and puts them into the rows
    public void paint(Graphics g){
-      if(isAlive){
+      if(isAlive && isVisible){
          Graphics2D g2 = (Graphics2D)g;
          g2.setStroke(new BasicStroke(2));
          g2.setColor(color);
@@ -50,18 +52,29 @@ public class Brick extends Rectangle{
          
             if (this.contains(pointRight)) {
                b.bounceHoriz();
+               GameConstants.ring.play();  
+            
             } 
             else if (this.contains(pointLeft)) {
                b.bounceHoriz();
+               GameConstants.ring.play();  
+            
+            
             }
-         
-            if (this.contains(pointTop)) {
+            
+            else if (this.contains(pointTop)) {
                b.bounceVert();
+               GameConstants.ring.play();  
+            
+            
             } 
             else if (this.contains(pointBottom)) {
-               b.bounceVert();            }
+               b.bounceVert();
+               GameConstants.ring.play();  
+            }
          
             this.isAlive = false;
+            this.isVisible = false;
          }          
       
       }

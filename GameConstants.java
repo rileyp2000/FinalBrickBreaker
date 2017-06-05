@@ -13,12 +13,15 @@ import java.awt.*;
 public class GameConstants{
   
    public static boolean isRunning = true;
-  
-  
+   //String constants for messages
+   final static String won = "Congrats Bud you won!";
+   final static String lost = "Sorry Bud you lost!";
+
+
    //constants used for the brick
-   final static int BRICK_WIDTH = 50;
-   final static int BRICK_LENGTH = 30;
-   final static int NUM_ROWS = 10;
+   final static int BRICK_WIDTH = 600; //80;
+   final static int BRICK_LENGTH = 50;
+   final static int NUM_ROWS = 1;
    final static int NUM_BRICKS = (GameConstants.WINDOW_SIZE-50)/GameConstants.BRICK_WIDTH;
       
    
@@ -37,5 +40,12 @@ public class GameConstants{
    //this array keeps track of what color to use for each brick
    final static Color[] COLORS = {Color.RED,Color.ORANGE,Color.YELLOW,
                    Color.GREEN, Color.BLUE, Color.CYAN, Color.PINK};
-
+   
+   //all of the sounds for the game
+   static EasySound iDubbbz = new EasySound("Sounds/Hey_Thats_Pretty_Good_-_iDubbbz_Sound_Effect_HD_.wav");
+   static EasySound hitMarker = new EasySound("Sounds/hit_marker_Sound_Effect.wav");
+   static EasySound loss = new EasySound("Sounds/RIP.wav");
+   static EasySound ring = new EasySound("Sounds/Sonic_Ring_Sound.wav");
+   static boolean soundAlreadyPlayed = false;
+   
 }

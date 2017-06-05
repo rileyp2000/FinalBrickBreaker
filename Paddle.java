@@ -26,22 +26,44 @@ public class Paddle extends Rectangle{
    }
    
    public void checkHit(Ball b){
-      //checks if right side is hit
-      if ((b.getY() >= super.getY()) && (b.getY() <= super.getY() + GameConstants.PADDLE_LENGTH) 
-      && (b.getX() >= super.getX() + GameConstants.PADDLE_LENGTH)){
-         b.bounceHoriz();
-      }
-      //checks if left side is hit
-      if ((b.getY() >= super.getY()) && (b.getY() <= super.getY() + GameConstants.PADDLE_LENGTH) 
-      && (b.getX() <= super.getX())){
-         b.bounceHoriz();
-      }
-      //checks if top is hit
-      if ((b.getX() >= super.getX()) && (b.getX() <= super.getX()+GameConstants.PADDLE_WIDTH) 
-      && (b.getY()+GameConstants.BALL_DIAMETER >= super.getY())){      
-         b.bounceVert();
-      }
+      if ((b.getBounds2D()).intersects(this)) {
+         
+         int ballLeft = (int) b.getX();
+         int ballHeight = (int) b.getHeight();
+         int ballWidth = (int) b.getWidth();
+         int ballTop = (int) b.getY();
+         
+         Point pointRight = new Point(ballLeft + ballWidth + 1, ballTop);
+         Point pointLeft = new Point(ballLeft - 1, ballTop);
+         Point pointTop = new Point(ballLeft, ballTop - 1);
+         Point pointBottom = new Point(ballLeft, ballTop + ballHeight + 1);
+         
+         
+         if (this.contains(pointRight)) {
+            b.bounceHoriz();
+            GameConstants.hitMarker.play();
+            
+         } 
+         else if (this.contains(pointLeft)) {
+            b.bounceHoriz();
+            GameConstants.hitMarker.play();
+            
+            
+         }
+            
+         else if (this.contains(pointTop)) {
+            b.bounceVert();
+            GameConstants.hitMarker.play();
+            
+            
+         } 
+         else if (this.contains(pointBottom)) {
+            b.bounceVert();
+            GameConstants.hitMarker.play();
+         }
       
+      
+      
+      }  
    }
-
 }

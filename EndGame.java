@@ -4,27 +4,39 @@ import javax.swing.*;
 import java.awt.*;
 
 public class EndGame extends SetupBoard{
-   private String outcome;
 
-public EndGame(String out){
-   outcome = out;
-}
-
-public void paintComponent(Graphics g){
-      GameConstants.sop("hi");
+   public void paintComponent(Graphics g){
       super.paintComponent(g);  
       paintStuff(g);
-     // repaint();
-     // invalidate();
-}
+      repaint();
+      invalidate();
+   }
 
-public void paintStuff(Graphics g){
+   public void paintStuff(Graphics g){
+      if(!GameConstants.isRunning)
+         loseGame(g);
+      if(b.isEmpty())
+         winGame(g);
+        
+   }
+
+   public void loseGame(Graphics g){
+      Bricks.killBricks();        
+      g.setColor(new Color(195, 195, 195));   
+      g.fillRect(0,0,700,700);
+      g.setColor(Color.BLACK);
       g.setFont(new Font("Comic Sans MS", Font.PLAIN, 48));
-      g.drawString("Sorry Bud you "+ outcome + "!", GameConstants.WINDOW_SIZE/4, GameConstants.WINDOW_SIZE/4);
-      System.out.println("hello");
-}
-
-
+      g.drawString(GameConstants.lost, GameConstants.WINDOW_SIZE/4, GameConstants.WINDOW_SIZE/4);
+   }
+   
+   public void winGame(Graphics g){
+      g.setColor(Color.CYAN);
+      g.fillRect(0,0,700,700);
+      g.setColor(Color.BLACK);
+      g.setFont(new Font("Comic Sans MS", Font.PLAIN, 48));
+      g.drawString(GameConstants.won, GameConstants.WINDOW_SIZE/4, GameConstants.WINDOW_SIZE/4);
+      
+   }
 
 
 }
