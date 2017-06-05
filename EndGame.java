@@ -31,6 +31,8 @@ public class EndGame extends SetupBoard{
                 .addComponent(reset, GroupLayout.PREFERRED_SIZE, 70,GroupLayout.PREFERRED_SIZE)
                 .addGap(350, 350, 350))
          );
+      reset.addActionListener(new ResetButtonListener());
+      add(reset);
    }   
 
    
@@ -59,37 +61,34 @@ public class EndGame extends SetupBoard{
       public void actionPerformed(ActionEvent e) 
       { 
          resetGame();
-         System.out.print(b.isEmpty());
       }
    } 
    
    public void resetGame(){
-      Bricks.reset();
-      GameConstants.isRunning = true;
-      GameConstants.soundAlreadyPlayed = false;
-      b.reset();
+      System.out.print(b.isEmpty());
+   
       
    }
 
    
    public void loseGame(Graphics g){
       if(!GameConstants.isRunning){
-      Bricks.killBricks();        
-      g.setColor(new Color(195, 195, 195));   
-      g.fillRect(0,0,GameConstants.WINDOW_SIZE,GameConstants.WINDOW_SIZE);
-      g.setColor(Color.BLACK);
-      g.setFont(new Font("Comic Sans MS", Font.PLAIN, 48));
-      g.drawString(GameConstants.lost, GameConstants.WINDOW_SIZE/7, GameConstants.WINDOW_SIZE/4);
+         Bricks.killBricks();        
+         g.setColor(new Color(195, 195, 195));   
+         g.fillRect(0,0,GameConstants.WINDOW_SIZE,GameConstants.WINDOW_SIZE);
+         g.setColor(Color.BLACK);
+         g.setFont(new Font("Comic Sans MS", Font.PLAIN, 48));
+         g.drawString(GameConstants.lost, GameConstants.WINDOW_SIZE/7, GameConstants.WINDOW_SIZE/4);
       }
    }
    
    public void winGame(Graphics g){
       if(!GameConstants.isRunning){
-      g.setColor(Color.CYAN);
-      g.fillRect(0,0,700,700);
-      g.setColor(Color.BLACK);
-      g.setFont(new Font("Comic Sans MS", Font.PLAIN, 48));
-      g.drawString(GameConstants.won, GameConstants.WINDOW_SIZE/7, GameConstants.WINDOW_SIZE/4);
+         g.setColor(Color.CYAN);
+         g.fillRect(0,0,700,700);
+         g.setColor(Color.BLACK);
+         g.setFont(new Font("Comic Sans MS", Font.PLAIN, 48));
+         g.drawString(GameConstants.won, GameConstants.WINDOW_SIZE/7, GameConstants.WINDOW_SIZE/4);
       }
    }
 
