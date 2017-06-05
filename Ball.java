@@ -109,8 +109,13 @@ public class Ball extends java.awt.geom.Ellipse2D.Double {
    }
    
    public void speedUp(){
-   v.setVX(v.getVX()*1.05);
-   v.setVY(v.getVY()*1.05);
+      v.setVX(v.getVX()*1.10);
+      v.setVY(v.getVY()*1.10);
+      if(!GameConstants.soundPlaying){
+         GameConstants.soundPlaying = true;
+         GameConstants.faster.play();
+         GameConstants.soundPlaying = false;
+      }
    }
    
    public void reset(){

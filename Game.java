@@ -17,7 +17,14 @@ public class Game implements MouseMotionListener{
    BallTask task;
    
    public Game(){
-   
+      
+      String nR = JOptionPane.showInputDialog("Enter the Number of rows");
+      String nC = JOptionPane.showInputDialog("Enter the number of bricks in a row");
+      
+      int numRow = Integer.parseInt(nR);
+      GameConstants.NUM_ROWS = numRow;
+      int numCol = Integer.parseInt(nC);
+      GameConstants.BRICK_WIDTH = (GameConstants.WINDOW_SIZE - 100)/numCol; 
    	
       frame = new JFrame("Breakout!");
       dr = new SetupBoard();

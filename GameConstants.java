@@ -21,9 +21,9 @@ public class GameConstants{
 
 
    //constants used for the brick
-   final static int BRICK_WIDTH = 150; //80;
+   static int BRICK_WIDTH = 130; //80;
    final static int BRICK_LENGTH = 50;
-   final static int NUM_ROWS = 3;
+   static int NUM_ROWS = 5;
    final static int NUM_BRICKS = (GameConstants.WINDOW_SIZE-50)/GameConstants.BRICK_WIDTH;
       
    
@@ -48,6 +48,8 @@ public class GameConstants{
    static EasySound hitMarker = new EasySound("hit_marker_Sound_Effect.wav");
    static EasySound loss = new EasySound("RIP.wav");
    static EasySound ring = new EasySound("Sonic_Ring_Sound.wav");
+   static EasySound faster = new EasySound("goFast.wav");
    static boolean soundAlreadyPlayed = false;
+   static boolean soundPlaying = false;
    
 }
