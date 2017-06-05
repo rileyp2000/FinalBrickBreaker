@@ -61,13 +61,12 @@ public class EndGame extends SetupBoard{
       public void actionPerformed(ActionEvent e) 
       { 
          resetGame();
+         System.out.print(b.isEmpty());
       }
    } 
    
    public void resetGame(){
-      System.out.print(b.isEmpty());
-   
-      
+      GameConstants.gameReset = true;
    }
 
    

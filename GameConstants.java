@@ -13,6 +13,8 @@ import java.awt.*;
 public class GameConstants{
   
    public static boolean isRunning = true;
+   public static boolean gameReset = false;
+   
    //String constants for messages
    final static String won = "Congrats Bud you won!";
    final static String lost = "Sorry Bud you lost!";
