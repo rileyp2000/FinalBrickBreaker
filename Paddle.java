@@ -24,7 +24,14 @@ public class Paddle extends Rectangle{
    public void setLocation(int xx){
       setLocation(xx, y);
    }
-   
+    /*checks if a given ball has hit the paddle by:
+    *1) checking if the two shapes intersect at all (using built-in Java methods)
+    *2) creating four points for each corner of the rectangle that bounds the Ball 
+    *3) Checking if any of those points are touching this Brick
+    *4) If any point is colliding, calls the ball's appropriate bounce method and plays a sound effect
+    *5)The bounce and sound effect are called at the same time using Thread to avoid delays
+    */ 
+
    public void checkHit(Ball b){
       if ((b.getBounds2D()).intersects(this)) {
          
@@ -40,26 +47,74 @@ public class Paddle extends Rectangle{
          
          
          if (this.contains(pointRight)) {
-            b.bounceHoriz();
-            GameConstants.hitMarker.play();
+            Thread thread1 = 
+                  new Thread() {
+                     public void run() {
+                        b.bounceHoriz();  
+                     }    
+                  };
+            Thread thread2 = 
+                  new Thread() {
+                     public void run() {
+                        GameConstants.hitMarker.play();  
+                     }
+                  };
+            thread1.start();
+            thread2.start();
             
          } 
          else if (this.contains(pointLeft)) {
-            b.bounceHoriz();
-            GameConstants.hitMarker.play();
+            Thread thread1 = 
+                  new Thread() {
+                     public void run() {
+                        b.bounceHoriz();  
+                     }    
+                  };
+            Thread thread2 = 
+                  new Thread() {
+                     public void run() {
+                        GameConstants.hitMarker.play();  
+                     }
+                  };
+            thread1.start();
+            thread2.start();
             
             
          }
             
          else if (this.contains(pointTop)) {
-            b.bounceVert();
-            GameConstants.hitMarker.play();
+            Thread thread1 = 
+                  new Thread() {
+                     public void run() {
+                        b.bounceVert();  
+                     }    
+                  };
+            Thread thread2 = 
+                  new Thread() {
+                     public void run() {
+                        GameConstants.hitMarker.play();  
+                     }
+                  };
+            thread1.start();
+            thread2.start();
             
             
          } 
          else if (this.contains(pointBottom)) {
-            b.bounceVert();
-            GameConstants.hitMarker.play();
+            Thread thread1 = 
+                  new Thread() {
+                     public void run() {
+                        b.bounceVert();  
+                     }    
+                  };
+            Thread thread2 = 
+                  new Thread() {
+                     public void run() {
+                        GameConstants.hitMarker.play();  
+                     }
+                  };
+            thread1.start();
+            thread2.start();
          }
       
       
