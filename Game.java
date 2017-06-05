@@ -39,7 +39,9 @@ public class Game implements MouseMotionListener{
    }
    
    public void reset(){
-      
+      frame.remove(end);
+      dr = new SetupBoard();
+      frame.add(dr);
    }
    public void mouseMoved(MouseEvent e) {
       Paddle p = dr.getPaddle();
