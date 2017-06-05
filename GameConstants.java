@@ -12,8 +12,13 @@ import java.awt.*;
 
 public class GameConstants{
   
+  
+   //booleans to keep track of different events such as the entire game running and different sounds
    public static boolean isRunning = true;
    public static boolean gameReset = false;
+   public static boolean soundAlreadyPlayed = false;
+   public static boolean soundPlaying = false;
+   
    
    //String constants for messages
    final static String won = "Congrats Bud you won!";
@@ -21,9 +26,9 @@ public class GameConstants{
 
 
    //constants used for the brick
-   static int BRICK_WIDTH = 130; //80;
+   final static int BRICK_WIDTH = 200; //80;
    final static int BRICK_LENGTH = 50;
-   static int NUM_ROWS = 5;
+   final static int NUM_ROWS = 5;
    final static int NUM_BRICKS = (GameConstants.WINDOW_SIZE-50)/GameConstants.BRICK_WIDTH;
       
    
@@ -44,12 +49,11 @@ public class GameConstants{
                    Color.GREEN, Color.BLUE, Color.CYAN, Color.PINK};
    
    //all of the sounds for the game
-   static EasySound iDubbbz = new EasySound("Hey_Thats_Pretty_Good_-_iDubbbz_Sound_Effect_HD_.wav");
-   static EasySound hitMarker = new EasySound("hit_marker_Sound_Effect.wav");
-   static EasySound loss = new EasySound("RIP.wav");
-   static EasySound ring = new EasySound("Sonic_Ring_Sound.wav");
-   static EasySound faster = new EasySound("goFast.wav");
-   static boolean soundAlreadyPlayed = false;
-   static boolean soundPlaying = false;
+   final static EasySound iDubbbz = new EasySound("Hey_Thats_Pretty_Good_-_iDubbbz_Sound_Effect_HD_.wav");
+   final static EasySound hitMarker = new EasySound("hit_marker_Sound_Effect.wav");
+   final static EasySound loss = new EasySound("RIP.wav");
+   final static EasySound ring = new EasySound("Sonic_Ring_Sound.wav");
+   final static EasySound faster = new EasySound("goFast.wav");
+   
    
 }

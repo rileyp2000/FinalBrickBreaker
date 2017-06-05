@@ -41,6 +41,7 @@ public class Brick extends Rectangle{
     *4) If any point is colliding, calls the ball's appropriate bounce method, speeds up the ball, and plays a sound effect
     *5)The bounce and sound effect are called at the same time using Thread to avoid delays
     *6) Sets the brick to disappear
+    *(Inspiration taken from Stanford CS 106 Breakout assignment)
     */ 
    public void checkHit(Ball b){
       if(this.isAlive){

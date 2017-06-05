@@ -30,6 +30,8 @@ public class Paddle extends Rectangle{
     *3) Checking if any of those points are touching this Brick
     *4) If any point is colliding, calls the ball's appropriate bounce method and plays a sound effect
     *5)The bounce and sound effect are called at the same time using Thread to avoid delays
+    *(Inspiration taken from Stanford CS 106 Breakout assignment)
+
     */ 
 
    public void checkHit(Ball b){
