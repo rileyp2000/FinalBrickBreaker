@@ -143,7 +143,7 @@ public class Brick extends Rectangle{
    
    
    public void reset(){
-   this.isAlive = true;
+      this.isAlive = true;
    }
    
    public String toString(){

@@ -39,7 +39,11 @@ public class Game implements MouseMotionListener{
    }
    
    public void reset(){
+      end.invalidate();
       frame.remove(end);
+      Bricks.reset();
+      GameConstants.isRunning = true;
+      GameConstants.soundAlreadyPlayed = false;
       dr = new SetupBoard();
       frame.add(dr);
    }
@@ -64,7 +68,9 @@ public class Game implements MouseMotionListener{
    
        
       public void run() {
-         
+         if(GameConstants.gameReset){
+            reset();
+         }
          Ball b = dr.getBall();
          if(GameConstants.isRunning||!dr.getBricks().isEmpty()){
             b.moveBall();  
