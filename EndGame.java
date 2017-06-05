@@ -10,15 +10,51 @@ public class EndGame extends SetupBoard{
    
    public JButton reset; 
    
-   
-   public EndGame(){
-      reset = new JButton("Reset");     
-      reset.addActionListener(new ResetButtonListener());
-      add(reset);
-      
-      JPanel panel = new JPanel(new BorderLayout());
-      panel.add(this, BorderLayout.WEST);
-   }
+//inspired by the code from the netbeans editor
+public EndGame(){
+        reset = new JButton("Reset");
+        reset.setAlignmentY(0.0F);
+
+        GroupLayout layout = new GroupLayout(this);
+        setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(268, 268, 268)
+                .addComponent(reset, GroupLayout.PREFERRED_SIZE, 140, GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(292, Short.MAX_VALUE))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+            .addGroup(GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(284, Short.MAX_VALUE)
+                .addComponent(reset, GroupLayout.PREFERRED_SIZE, 70,GroupLayout.PREFERRED_SIZE)
+                .addGap(350, 350, 350))
+        );
+        }   
+//    public EndGame(){
+//       setLayout(new BoxLayout(this ,BoxLayout.X_AXIS));
+//      
+//       reset = new JButton("Reset");  
+//       JButton b1 = new JButton ("Reaet");  
+//       JButton b2 = new JButton ("Reaet");
+//       JButton b3 = new JButton ("Reaet");
+//       JButton b4 = new JButton ("Reaet");
+// 
+//       reset.addActionListener(new ResetButtonListener());
+//      
+//       b1.setAlignmentX(Component.CENTER_ALIGNMENT);
+//       b2.setAlignmentX(Component.CENTER_ALIGNMENT);
+//       b3.setAlignmentX(Component.CENTER_ALIGNMENT);
+//       b4.setAlignmentX(Component.CENTER_ALIGNMENT);
+//       reset.setAlignmentX(Component.CENTER_ALIGNMENT);
+//       add(b1);
+//       add(b2);
+//       add(b3);
+//       add(b4);
+//       add(reset);
+//       
+//    }
    
    
    
