@@ -22,19 +22,19 @@ public class EndGame extends SetupBoard{
 
    public void loseGame(Graphics g){
       Bricks.killBricks();        
-      g.setColor(Color.CYAN);
+      g.setColor(new Color(195, 195, 195));   
       g.fillRect(0,0,700,700);
       g.setColor(Color.BLACK);
       g.setFont(new Font("Comic Sans MS", Font.PLAIN, 48));
-      g.drawString("Sorry Bud you lose!", GameConstants.WINDOW_SIZE/4, GameConstants.WINDOW_SIZE/4);
+      g.drawString(GameConstants.lost, GameConstants.WINDOW_SIZE/4, GameConstants.WINDOW_SIZE/4);
    }
    
    public void winGame(Graphics g){
       g.setColor(Color.CYAN);
       g.fillRect(0,0,700,700);
-      g.setColor(Color.BLACK);   
+      g.setColor(Color.BLACK);
       g.setFont(new Font("Comic Sans MS", Font.PLAIN, 48));
-      g.drawString("Sorry Bud you Win!", GameConstants.WINDOW_SIZE/4, GameConstants.WINDOW_SIZE/4);
+      g.drawString(GameConstants.won, GameConstants.WINDOW_SIZE/4, GameConstants.WINDOW_SIZE/4);
       
    }
 

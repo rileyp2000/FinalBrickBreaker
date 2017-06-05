@@ -59,19 +59,26 @@ public class Game implements MouseMotionListener{
       public void run() {
          
          Ball b = dr.getBall();
-         b.moveBall();  
-         dr.getBricks().checkBricks(b);
-         dr.getPaddle().checkHit(b);
-         
-         if(!GameConstants.isRunning){
+         if(GameConstants.isRunning||!dr.getBricks().isEmpty()){
+            b.moveBall();  
+            dr.getBricks().checkBricks(b);
+            dr.getPaddle().checkHit(b);
+         }
+         if(!GameConstants.isRunning&&!dr.getBricks().isEmpty()){
             dr.setVisible(false);
             //end = new EndGame();
-            frame.add(end);     
-         
+            frame.add(end);
+            GameConstants.loss.play();
+            GameConstants.isRunning = false;   
          }
-         if(dr.b.isEmpty()){
+         if(dr.getBricks().isEmpty()){
             dr.setVisible(false);
-            frame.add(end);     
+            frame.add(end);  
+            GameConstants.isRunning = false;
+            if(!GameConstants.soundAlreadyPlayed){
+               GameConstants.iDubbbz.play();
+               GameConstants.soundAlreadyPlayed = true;
+            }
          }
          
          dr.invalidate();

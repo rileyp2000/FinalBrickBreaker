@@ -52,16 +52,26 @@ public class Brick extends Rectangle{
          
             if (this.contains(pointRight)) {
                b.bounceHoriz();
+               GameConstants.ring.play();  
+            
             } 
             else if (this.contains(pointLeft)) {
                b.bounceHoriz();
+               GameConstants.ring.play();  
+            
+            
             }
-         
-            if (this.contains(pointTop)) {
+            
+            else if (this.contains(pointTop)) {
                b.bounceVert();
+               GameConstants.ring.play();  
+            
+            
             } 
             else if (this.contains(pointBottom)) {
-               b.bounceVert();            }
+               b.bounceVert();
+               GameConstants.ring.play();  
+            }
          
             this.isAlive = false;
             this.isVisible = false;
