@@ -73,9 +73,8 @@ public class Game implements MouseMotionListener{
             dr.setVisible(false);
             frame.add(end);
             GameConstants.loss.play();
-            GameConstants.isRunning = false;   
          }
-         if(dr.getBricks().isEmpty()){
+         else if(dr.getBricks().isEmpty()){
             dr.setVisible(false);
             frame.add(end);  
             GameConstants.isRunning = false;
