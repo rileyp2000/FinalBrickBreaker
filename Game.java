@@ -39,13 +39,16 @@ public class Game implements MouseMotionListener{
    }
    
    public void reset(){
+      
       end.invalidate();
-      frame.remove(end);
-      Bricks.reset();
-      GameConstants.isRunning = true;
-      GameConstants.soundAlreadyPlayed = false;
-      dr = new SetupBoard();
-      frame.add(dr);
+      frame.remove(end);//removes the end screen JPanel (the one with the reset button)
+      dr = new SetupBoard();//resests the SetupBoard JPanel to its original state
+      Bricks.reset();//resets all bricks to be alive again
+      GameConstants.isRunning = true; //resets the constant to tell if the game is still being played
+      GameConstants.soundAlreadyPlayed = false; //resets the constant that checks if the end game sound is repeating
+      frame.add(dr);//adds the newly reset SetupBoard JPanel to the JFrame
+      frame.revalidate();
+      frame.repaint();//Repaints th game
    }
    public void mouseMoved(MouseEvent e) {
       Paddle p = dr.getPaddle();
@@ -68,8 +71,11 @@ public class Game implements MouseMotionListener{
    
        
       public void run() {
+         //checks if the resest button has been pressed, and, 
+         //if it has, changes again so it hasn't back and resets game
          if(GameConstants.gameReset){
             reset();
+            GameConstants.gameReset = false;
          }
          Ball b = dr.getBall();
          if(GameConstants.isRunning||!dr.getBricks().isEmpty()){
@@ -80,7 +86,12 @@ public class Game implements MouseMotionListener{
          if(!GameConstants.isRunning&&!dr.getBricks().isEmpty()){
             dr.setVisible(false);
             frame.add(end);
-            GameConstants.loss.play();
+            if(!GameConstants.soundAlreadyPlayed){
+            
+               GameConstants.loss.play();
+               GameConstants.soundAlreadyPlayed = true;
+            }
+         
          }
          else if(dr.getBricks().isEmpty()){
             dr.setVisible(false);

@@ -24,7 +24,7 @@ public class Bricks{
             else
                c = GameConstants.COLORS[i-6];
            
-            Brick b = new Brick(j*GameConstants.BRICK_WIDTH+15,i*GameConstants.BRICK_LENGTH+25,c);
+            Brick b = new Brick(j*GameConstants.BRICK_WIDTH+50,i*GameConstants.BRICK_LENGTH+25,c);
             bs[i][j] = b; 
          }
       }
