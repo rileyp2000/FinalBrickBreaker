@@ -42,10 +42,10 @@ public class GameConstants{
                    Color.GREEN, Color.BLUE, Color.CYAN, Color.PINK};
    
    //all of the sounds for the game
-   static EasySound iDubbbz = new EasySound("Sounds/Hey_Thats_Pretty_Good_-_iDubbbz_Sound_Effect_HD_.wav");
-   static EasySound hitMarker = new EasySound("Sounds/hit_marker_Sound_Effect.wav");
-   static EasySound loss = new EasySound("Sounds/RIP.wav");
-   static EasySound ring = new EasySound("Sounds/Sonic_Ring_Sound.wav");
+   static EasySound iDubbbz = new EasySound("Hey_Thats_Pretty_Good_-_iDubbbz_Sound_Effect_HD_.wav");
+   static EasySound hitMarker = new EasySound("hit_marker_Sound_Effect.wav");
+   static EasySound loss = new EasySound("RIP.wav");
+   static EasySound ring = new EasySound("Sonic_Ring_Sound.wav");
    static boolean soundAlreadyPlayed = false;
    
 }
